@@ -82,3 +82,50 @@ window.addEventListener("scroll", function () {
         }
     })
 })
+
+let speed = document.getElementById("speed")
+let passing = document.getElementById("passing")
+let shooting = document.getElementById("shooting")
+let stamina = document.getElementById("stamina")
+let speedValue = document.getElementById("speedValue")
+let passingValue = document.getElementById("passingValue")
+let shootingValue = document.getElementById("shootingValue")
+let staminaValue = document.getElementById("staminaValue")
+let performanceScore = document.getElementById("performanceScore")
+
+function calculatePerformance() {
+    let speedScore = Number(speed.value)
+    let passingScore = Number(passing.value)
+    let shootingScore = Number(shooting.value)
+    let staminaScore = Number(stamina.value)
+    let total = speedScore + passingScore + shootingScore + staminaScore
+    let average = Math.round(total / 4)
+
+    speedValue.textContent = speedScore
+    passingValue.textContent = passingScore
+    shootingValue.textContent = shootingScore
+    staminaValue.textContent = staminaScore
+    performanceScore.textContent = average
+}
+
+speed.addEventListener(
+    "input",
+    calculatePerformance
+)
+
+passing.addEventListener(
+    "input",
+    calculatePerformance
+)
+
+shooting.addEventListener(
+    "input",
+    calculatePerformance
+)
+
+stamina.addEventListener(
+    "input",
+    calculatePerformance
+)
+
+calculatePerformance()
